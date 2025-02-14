@@ -119,4 +119,6 @@ $ npm run test:cov
 
 ## API Documentation
 
-For full API documentation, please refer to the [Swagger Documentation]().
+For full API documentation, please refer to the [Swagger Documentation](
+  https://blog-management-theta.vercel.app/api/docs/
+).
