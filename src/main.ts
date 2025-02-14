@@ -7,6 +7,16 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
+  // Disable ETag
+  (app as any).set('etag', false);
+
+  // Remove unnecessary headers
+  app.use((req, res, next) => {
+    res.removeHeader('x-powered-by');
+    res.removeHeader('date');
+    next();
+  });
+
   // Global validation pipe
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
 
