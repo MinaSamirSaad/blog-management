@@ -18,6 +18,10 @@
                 "PATCH",
                 "OPTIONS"
             ]
+        },
+        {
+            "src": "/api/docs/(.*)",
+            "dest": "src/main.ts"
         }
     ]
 }
