@@ -15,8 +15,8 @@ async function bootstrap() {
     .setTitle('API documentation')
     .setDescription('API for the Blogs Management System application')
     .setVersion('1.0')
-    .addServer('https://blog-management-theta.vercel.app/api/', 'Production')
-    .addServer('http://localhost:3000/api/', 'Local environment')
+    .addServer('https://blog-management-theta.vercel.app/', 'Production')
+    .addServer('http://localhost:3000/', 'Local environment')
     .addBearerAuth()
     .build();
 
