@@ -2,7 +2,7 @@ import { ConflictException, Injectable, InternalServerErrorException, Logger } f
 import { User } from './schemas/user.schema';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
-import { CreateUserDto } from './dto/create-user.dto';
+import { SignUpDto } from './dto/signup.dto';
 
 @Injectable()
 export class UsersService {
@@ -11,14 +11,14 @@ export class UsersService {
 
     /**
      * Creates a new user.
-     * @param createUserDto - The user data to create.
+     * @param signupData - The user data to create.
      * @returns {Promise<User>} The created user.
      * @throws {ConflictException} If the email already exists.
      * @throws {Error} If an unexpected error occurs.
      */
-    async create(createUserDto: CreateUserDto): Promise<User> {
+    async create(signupData: SignUpDto): Promise<User> {
         try {
-            const user = await this.userModel.create(createUserDto);
+            const user = await this.userModel.create(signupData);
             return user;
         } catch (error) {
             if (error?.code === 11000) {

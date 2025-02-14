@@ -3,7 +3,7 @@ import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
 import { randomBytes, scrypt as _scrypt } from "crypto";
 import { promisify } from 'util';
-import { CreateUserDto } from '../users/dto/create-user.dto';
+import { SignUpDto } from '../users/dto/signup.dto';
 
 const scrypt = promisify(_scrypt);
 @Injectable()
@@ -45,7 +45,7 @@ export class AuthService {
      * @returns {Promise<{access_token: string}>}An object containing the access token.
      * @throws {BadRequestException} if the email is already in use.
      */
-    async signUp(user: CreateUserDto): Promise<{ access_token: string; }> {
+    async signUp(user: SignUpDto): Promise<{ access_token: string; }> {
         // See if email is in use
         const existingUser = await this.usersService.findOneByEmail(user.email);
         if (existingUser) {

@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { SignInDto } from '../users/dto/signin.dto';
-import { CreateUserDto } from '../users/dto/create-user.dto';
+import { SignUpDto } from '../users/dto/signup.dto';
 import { ApiBearerAuth, ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Serialize } from '../interceptors/serialize.interceptor';
 import { UserDto } from '../users/dto/user.dto';
@@ -24,11 +24,11 @@ export class AuthController {
 
   // ========================== signUp ==========================
   @ApiOperation({ summary: 'User Signup' })
-  @ApiBody({ type: CreateUserDto })
+  @ApiBody({ type: SignUpDto })
   @ApiResponse({ status: 201, description: 'User successfully registered', example: { 'access_token': 'valid token' } })
   @ApiResponse({ status: 400, description: 'Bad request' })
   @Post('signup')
-  async signUp(@Body() body: CreateUserDto) {
+  async signUp(@Body() body: SignUpDto) {
     return this.authService.signUp(body);
   }
 

@@ -9,7 +9,7 @@ async function bootstrap() {
   // Swagger Configuration
   const config = new DocumentBuilder()
     .setTitle('API documentation')
-    .setDescription('API for the blogs application')
+    .setDescription('API for the Blogs Management System application')
     .setVersion('1.0')
     .addBearerAuth()
     .build();

@@ -4,8 +4,7 @@ import { ConflictException } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './schemas/user.schema';
 import { Model } from 'mongoose';
-import { CreateUserDto } from './dto/create-user.dto';
-import { create } from 'domain';
+import { SignUpDto } from './dto/signup.dto';
 
 const mockUser = {
   _id: '507f191e810c19729de860ea',
@@ -51,24 +50,24 @@ describe('UsersService', () => {
 
   describe('create', () => {
     it('should create a new user', async () => {
-      const createUserDto: CreateUserDto = {
+      const signupDto: SignUpDto = {
         email: 'test@example.com',
         name: 'test',
         password: 'Test.password123'
       };
       jest.spyOn(model, 'create').mockResolvedValue(mockUser as any);
-      const result = await service.create(createUserDto);
+      const result = await service.create(signupDto);
       expect(result).toEqual(mockUser);
     });
 
     it('should throw a conflict exception if email already exists', async () => {
-      const createUserDto: CreateUserDto = {
+      const signupDto: SignUpDto = {
         email: 'test@example.com',
         name: 'test',
         password: 'Test.password123',
       };
       jest.spyOn(model, 'create').mockRejectedValue({ code: 11000 });
-      await expect(service.create(createUserDto)).rejects.toThrow(ConflictException);
+      await expect(service.create(signupDto)).rejects.toThrow(ConflictException);
     });
   });
 
