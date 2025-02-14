@@ -12,10 +12,6 @@ async function bootstrap() {
   // Global validation pipe
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
 
-  // Serve static files for Swagger UI
-  const swaggerUiPath = join(__dirname, '..', 'node_modules/swagger-ui-dist');
-  app.use('/api/docs', express.static(swaggerUiPath));
-
   // Swagger Configuration
   const config = new DocumentBuilder()
     .setTitle('API documentation')
