@@ -28,6 +28,7 @@ This is a NestJS project that includes user authentication, authorization, and C
 
 - Node.js
 - pnpm or npm
+- MongoDB Server
 
 ### Installation
 
@@ -47,7 +48,7 @@ This is a NestJS project that includes user authentication, authorization, and C
 3. Set up environment variables:
   * create .env file and add this content inside it  
     ```bash
-    DATABASE_URL= "your database url"
+    DATABASE_URL= "your mongo database url"
     JWT_SECRET= "secret key for JWT"
     ```
 
