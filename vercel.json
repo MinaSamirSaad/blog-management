@@ -17,7 +17,16 @@
                 "DELETE",
                 "PATCH",
                 "OPTIONS"
-            ],
+            ]
+        },
+        {
+            "src": "/api/docs/(.*)",
+            "dest": "src/main.ts"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/api/(.*)",
             "headers": [
                 {
                     "key": "Access-Control-Allow-Origin",
@@ -36,10 +45,6 @@
                     "value": "true"
                 }
             ]
-        },
-        {
-            "src": "/api/docs/(.*)",
-            "dest": "src/main.ts"
         }
     ]
 }
