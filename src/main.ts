@@ -15,7 +15,7 @@ async function bootstrap() {
   //   allowedHeaders: 'Content-Type,Authorization',
   // });
   // Enable compression middleware
-  app.use(compression());
+  // app.use(compression());
 
   // Disable ETag
   (app as any).set('etag', false);
