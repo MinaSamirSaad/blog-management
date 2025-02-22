@@ -8,12 +8,12 @@ import * as compression from 'compression';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  app.enableCors({
-    origin: ['https://blog-management-theta.vercel.app', 'http://localhost:3000'],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-    allowedHeaders: 'Content-Type,Authorization',
-  });
+  // app.enableCors({
+  //   origin: ['https://blog-management-theta.vercel.app', 'http://localhost:3000'],
+  //   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  //   credentials: true,
+  //   allowedHeaders: 'Content-Type,Authorization',
+  // });
   // Enable compression middleware
   app.use(compression());
 
