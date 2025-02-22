@@ -50,7 +50,7 @@ This is a NestJS project that includes user authentication, authorization, and C
     ```bash
     DATABASE_URL= "your mongo database url"
     JWT_SECRET= "secret key for JWT"
-    PORT= "the port tht you wnt the server to run on it"
+    PORT= "the port that you want the server to run on it"
     ```
 
 ### Compile and run the project
